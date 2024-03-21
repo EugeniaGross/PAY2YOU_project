@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppStyles from "./App.module.scss";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import PhoneNumberSubscription from './subscribtion-process/pages/phone-number';
+import PaymentConfirm from "./subscribtion-process/pages/payment-confirm";
+import SubscriptionWarning from "./subscribtion-process/pages/warning";
+import SubscriptionSuccess from "./subscribtion-process/pages/success";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={AppStyles.page_wrapper}>
+      <Routes>
+      <Route path="/subscription" element={<PhoneNumberSubscription />} />
+      <Route path="/subscription/confirm" element={<PaymentConfirm />} />
+      <Route path="/subscription/warning" element={<SubscriptionWarning />} />
+      <Route path="/subscription/success" element={<SubscriptionSuccess />} />
+      </Routes>
     </div>
   );
 }

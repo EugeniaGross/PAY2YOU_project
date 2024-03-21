@@ -1,1 +1,0 @@
-# PAY2YOU_project
